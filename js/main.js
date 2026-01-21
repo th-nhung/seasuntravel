@@ -6,7 +6,7 @@
 const SiteData = {
     images: {
         default: "https://images.unsplash.com/photo-1499678329028-101435549a4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-        heroBg: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+        heroBg: "https://cdn-i.doisongphapluat.com.vn/resize/th/upload/2024/12/30/top-nhung-hon-dao-dep-o-viet-nam-nhat-dinh-phai-kham-pha-12411174.jpg",
         payment: {
             vcb: "https://cdn.haitrieu.com/wp-content/uploads/2022/02/Logo-Vietcombank.png",
             onepay: "https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-OnePay.png",
@@ -266,7 +266,7 @@ function renderFooter() {
             </div>
             
             <div class="border-top border-secondary pt-4 text-center text-secondary small">
-                &copy; 2024 Sea Sun Travel. All Rights Reserved. Designed by You.
+                &copy; 2026 Sea Sun Travel. All Rights Reserved. Designed by Cookie.
             </div>
         </div>
     </footer>`;
