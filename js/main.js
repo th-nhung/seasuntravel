@@ -37,7 +37,7 @@ const SiteData = {
             transport: "Máy bay + Xe du lịch",
             price: "4.500.000₫",
             location: "Bà Rịa - Vũng Tàu, Việt Nam",
-            image: "https://images.unsplash.com/photo-1555353540-64580b51c258?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+            image: "https://image.vietnam.travel/sites/default/files/styles/top_banner/public/2021-05/Con%20Dao%20Travel%20Guide%20Vietnam%20Tourism.jpg?itok=bA-K4l5k",
             intro: "Hành trình về nguồn kết hợp nghỉ dưỡng tại Côn Đảo - nơi từng được mệnh danh là 'Địa ngục trần gian' nay đã trở thành thiên đường du lịch. Quý khách sẽ được viếng mộ Cô Sáu linh thiêng, tìm hiểu lịch sử hào hùng và đắm mình trong làn nước trong vắt của bãi Đầm Trầu.",
             itinerary: [
                 { day: "Ngày 1", title: "Đón sân bay Cỏ Ống - Trại Giam - Dinh Chúa Đảo", desc: "Xe đón đoàn tại sân bay. Dùng cơm trưa, nhận phòng. Chiều tham quan Dinh Chúa Đảo, Hệ thống Chuồng Cọp Pháp/Mỹ, Bảo tàng Côn Đảo. Tối tự do dạo biển." },
@@ -51,7 +51,7 @@ const SiteData = {
             transport: "Xe du lịch đời mới + Cano",
             price: "3.800.000₫",
             location: "Bình Định, Việt Nam",
-            image: "https://images.unsplash.com/photo-1599708153386-62e26c6d2c4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+            image: "https://ik.imagekit.io/tvlk/blog/2024/02/ky-co-cover.jpg",
             intro: "Quy Nhơn chào đón bạn với vẻ đẹp hoang sơ đầy quyến rũ. Tour sẽ đưa bạn khám phá Kỳ Co với làn nước 2 màu xanh ngọc bích, check-in Eo Gió hùng vĩ nơi ngắm bình minh đẹp nhất Việt Nam và thưởng thức ẩm thực đất Võ trứ danh.",
             itinerary: [
                 { day: "Ngày 1", title: "Đón sân bay Phù Cát - Bảo tàng Quang Trung", desc: "Xe đón quý khách, tham quan Bảo tàng Quang Trung, xem biểu diễn Nhạc Võ Tây Sơn. Về khách sạn nhận phòng nghỉ ngơi. Tối thưởng thức bánh xèo tôm nhảy." },
@@ -93,7 +93,7 @@ const SiteData = {
         "goi-ca-trich": {
             title: "Gỏi Cá Trích Phú Quốc",
             location: "Phú Quốc",
-            image: "https://images.unsplash.com/photo-1519708227418-c8fd9a3a2b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+            image: "https://www.tasteatlas.com/images/dishes/16744689f0b04ba69efe8f23b2bd5edc.jpg?mw=1300",
             intro: "Gỏi cá trích là món ăn mang đậm hương vị biển cả, là sự kết hợp tinh tế giữa thịt cá trích tươi sống ngọt lịm với các loại rau rừng đặc trưng của đảo Ngọc. Món ăn không chỉ ngon miệng mà còn chứa đựng nét văn hóa ẩm thực độc đáo của ngư dân vùng biển đảo.",
             ingredients: [
                 "Cá trích tươi (lấy phần lườn hai bên)",
@@ -109,7 +109,7 @@ const SiteData = {
         "chao-hau": {
             title: "Cháo Hàu Côn Đảo",
             location: "Côn Đảo",
-            image: "https://images.unsplash.com/photo-1626804475297-411dbe631260?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+            image: "https://visitvungtau.travel/VisitVungTau/POINT/%C4%82n%20u%E1%BB%91ng/%E1%BA%A8m%20th%E1%BB%B1c%20%C4%91%E1%BB%8Ba%20ph%C6%B0%C6%A1ng/4627/image-thumb__4627__720_jpg/chao-hau-nguyen-con01-1527300509.3c858966.jpg",
             intro: "Cháo hàu là món ăn bổ dưỡng nổi tiếng tại Côn Đảo. Hàu ở đây được thiên nhiên ưu đãi nên con to, thịt dày và rất ngọt. Một tô cháo hàu nóng hổi sau những giờ tham quan hay tắm biển sẽ giúp du khách phục hồi năng lượng nhanh chóng.",
             ingredients: [
                 "Hàu sữa tươi Côn Đảo",
@@ -124,7 +124,7 @@ const SiteData = {
         "bun-cha-ca": {
             title: "Bún Chả Cá Quy Nhơn",
             location: "Quy Nhơn",
-            image: "https://images.unsplash.com/photo-1594221708779-94832f4320d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+            image: "https://gcs.tripi.vn/public-tripi/tripi-feed/img/473524mLL/image-nhung-dac-san-khong-the-bo-qua-khi-den-quy-nhon-165391213162671.jpg",
             intro: "Bún chả cá là niềm tự hào của người dân Quy Nhơn - Bình Định. Sự khác biệt nằm ở miếng chả cá dai giòn được làm từ cá thu, cá mối tươi rói và nồi nước dùng ngọt thanh được ninh hoàn toàn từ xương cá, không dùng nhiều gia vị tạo ngọt.",
             ingredients: [
                 "Chả cá hấp và chả cá chiên",
