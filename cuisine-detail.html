@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Ẩm Thực - Sea Sun Travel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <div id="cuisine-content" style="min-height: 60vh;">
+        <div class="text-center pt-5 mt-5">
+            <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        function renderCuisine() {
+            const cuisineId = getQueryParam('id');
+            const contentDiv = document.getElementById('cuisine-content');
+            
+            if (!cuisineId || !SiteData.cuisine[cuisineId]) {
+                contentDiv.innerHTML = `
+                    <div class="text-center py-5 mt-5">
+                        <h2 class="text-danger">Không tìm thấy món ăn!</h2>
+                        <a href="index.html" class="btn btn-primary mt-3">Quay về trang chủ</a>
+                    </div>`;
+                return;
+            }
+
+            const dish = SiteData.cuisine[cuisineId];
+            const relatedTour = SiteData.tours[dish.relatedTourId];
+
+            // Render Ingredients List
+            let ingredientsHTML = '<ul class="ingredient-list">';
+            dish.ingredients.forEach(item => {
+                ingredientsHTML += `<li>${item}</li>`;
+            });
+            ingredientsHTML += '</ul>';
+
+            contentDiv.innerHTML = `
+                <div class="detail-header-container">
+                    <img src="${dish.image}" class="detail-header-bg" onerror="this.src='${SiteData.images.default}'" alt="${dish.title}">
+                    <div class="detail-header-overlay"></div>
+                    <div class="detail-header-content">
+                        <div class="container"> <span class="badge bg-danger mb-2" style="width: fit-content">Đặc Sản</span>
+                            <h1 class="display-4 fw-bold">${dish.title}</h1>
+                            <p class="lead"><i class="fa-solid fa-location-dot me-2"></i>${dish.location}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container pb-5">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="mb-5">
+                                <h3 class="text-primary mb-3">Giới thiệu</h3>
+                                <p style="line-height: 1.8; font-size: 1.1rem; text-align: justify;">${dish.intro}</p>
+                            </div>
+
+                            <div class="mb-5">
+                                <h3 class="text-primary mb-3">Nguyên liệu chính</h3>
+                                <div class="bg-light p-4 rounded border-start border-4 border-primary">
+                                    ${ingredientsHTML}
+                                </div>
+                            </div>
+
+                            <div class="mb-5">
+                                <h3 class="text-primary mb-3">Hương vị đặc trưng</h3>
+                                <p style="line-height: 1.8;">${dish.taste}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="upsell-card">
+                                <h5 class="mb-3 text-uppercase text-center fw-bold" style="color: var(--accent-color);">
+                                    <i class="fa-solid fa-utensils me-2"></i>Thưởng thức món này tại
+                                </h5>
+                                
+                                <div class="card border-0">
+                                    <img src="${relatedTour.image}" class="tour-mini-img" onerror="this.src='${SiteData.images.default}'">
+                                    <div class="text-center">
+                                        <h5 class="fw-bold mb-1">${relatedTour.title}</h5>
+                                        <p class="text-danger fw-bold mb-3">${relatedTour.price}</p>
+                                        <a href="tour-detail.html?id=${dish.relatedTourId}" class="btn btn-primary w-100 rounded-pill">
+                                            Xem Chi Tiết Tour <i class="fa-solid fa-arrow-right ms-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        document.addEventListener('DOMContentLoaded', renderCuisine);
+    </script>
+</body>
+</html>

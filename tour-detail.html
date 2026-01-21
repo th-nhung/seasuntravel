@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Tour - Sea Sun Travel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <div id="tour-content" style="min-height: 60vh;">
+        <div class="text-center pt-5 mt-5">
+            <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        function renderTour() {
+            const tourId = getQueryParam('id');
+            const contentDiv = document.getElementById('tour-content');
+            
+            // Lấy dữ liệu từ main.js
+            if (!tourId || !SiteData.tours[tourId]) {
+                contentDiv.innerHTML = `
+                    <div class="text-center py-5 mt-5">
+                        <h2 class="text-danger">Không tìm thấy thông tin tour!</h2>
+                        <a href="index.html" class="btn btn-primary mt-3">Quay về trang chủ</a>
+                    </div>`;
+                return;
+            }
+
+            const tour = SiteData.tours[tourId];
+            let itineraryHTML = '';
+            tour.itinerary.forEach(item => {
+                itineraryHTML += `
+                    <div class="timeline-item">
+                        <span class="day-badge">${item.day}</span>
+                        <h4>${item.title}</h4>
+                        <p class="text-muted">${item.desc}</p>
+                    </div>`;
+            });
+
+            contentDiv.innerHTML = `
+                <div class="detail-header-container">
+                    <img src="${tour.image}" class="detail-header-bg" onerror="this.src='${SiteData.images.default}'" alt="${tour.title}">
+                    <div class="detail-header-overlay"></div>
+                    <div class="detail-header-content">
+                        <div class="container"> <span class="badge bg-warning text-dark mb-2" style="width: fit-content">Tour Hot</span>
+                            <h1 class="display-4 fw-bold">${tour.title}</h1>
+                            <p class="lead"><i class="fa-solid fa-location-dot me-2"></i>${tour.location}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container pb-5">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="mb-5">
+                                <h3 class="text-primary mb-3">Giới thiệu</h3>
+                                <p style="line-height: 1.8; font-size: 1.1rem;">${tour.intro}</p>
+                            </div>
+                            <div class="mb-5">
+                                <h3 class="text-primary mb-4">Lịch trình chi tiết</h3>
+                                <div class="timeline">${itineraryHTML}</div>
+                            </div>
+                            <div class="mb-5">
+                                <h3 class="text-primary mb-3">Thông tin phương tiện</h3>
+                                <div class="d-flex align-items-center bg-light p-3 rounded">
+                                    <i class="fa-solid fa-plane-departure fa-2x text-secondary me-3"></i>
+                                    <i class="fa-solid fa-bus fa-2x text-secondary me-3"></i>
+                                    <div><h5 class="mb-0">Di chuyển trọn gói</h5><p class="mb-0 text-muted">${tour.transport}</p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="booking-card">
+                                <h4 class="mb-4">Thông tin đặt tour</h4>
+                                <div class="mb-3"><small class="text-muted">Giá trọn gói / khách</small><div class="price-tag">${tour.price}</div></div>
+                                <div class="mb-3"><label class="form-label fw-bold"><i class="fa-regular fa-calendar me-2"></i>Thời gian</label><p>${tour.duration}</p></div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold"><i class="fa-solid fa-check me-2"></i>Bao gồm</label>
+                                    <ul class="small text-muted ps-3"><li>Khách sạn 3-4 sao</li><li>Các bữa ăn theo chương trình</li><li>Vé tham quan & Hướng dẫn viên</li><li>Bảo hiểm du lịch</li></ul>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary btn-lg fw-bold">ĐẶT TOUR NGAY</button>
+                                    <a href="tel:0901234567" class="btn btn-outline-dark"><i class="fa-solid fa-phone me-2"></i>Tư vấn: 090 123 4567</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        document.addEventListener('DOMContentLoaded', renderTour);
+    </script>
+</body>
+</html>
