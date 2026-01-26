@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thế Giới Ẩm Thực - Sea Sun Travel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-header {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <div class="page-header">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Tinh Hoa Ẩm Thực</h1>
+            <p class="lead">Hương vị đậm đà của biển cả Việt Nam</p>
+        </div>
+    </div>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="row" id="cuisine-container">
+                </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('cuisine-container');
+            
+            Object.keys(SiteData.cuisine).forEach(key => {
+                const item = SiteData.cuisine[key];
+                // Sử dụng shortTitle, shortDesc
+                const html = `
+                    <div class="col-12">
+                        <div class="cuisine-card">
+                            <div class="row g-0">
+                                <div class="col-md-5">
+                                    <img src="${item.image}" 
+                                         onerror="this.onerror=null; this.src='${SiteData.images.default}';"
+                                         alt="${item.shortTitle}" class="cuisine-img">
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="cuisine-body">
+                                        <span class="cuisine-location"><i class="fa-solid fa-map-pin me-2"></i>${item.location}</span>
+                                        <h3 class="cuisine-title">${item.shortTitle}</h3>
+                                        <p class="cuisine-desc">${item.shortDesc}</p>
+                                        <div><a href="cuisine-detail.html?id=${key}" class="btn btn-outline-dark rounded-pill px-4">Khám phá ngay</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+                container.innerHTML += html;
+            });
+        });
+    </script>
+</body>
+</html>

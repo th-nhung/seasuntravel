@@ -1,4 +1,4 @@
-/* js/main.js */
+/* main.js */
 
 // ==========================================
 // CENTRALIZED DATA STORE (Source of Truth)
@@ -17,6 +17,9 @@ const SiteData = {
     },
     tours: {
         "phu-quoc": {
+            shortTitle: "Phú Quốc - Đảo Ngọc",
+            shortDesc: "Khám phá Bãi Sao, Hòn Thơm và thưởng thức hải sản tươi sống.",
+            rating: "4.9",
             title: "Phú Quốc - Đảo Ngọc Thiên Đường",
             duration: "4 Ngày 3 Đêm",
             transport: "Máy bay + Ô tô + Cano",
@@ -32,6 +35,9 @@ const SiteData = {
             ]
         },
         "con-dao": {
+            shortTitle: "Côn Đảo - Tâm Linh",
+            shortDesc: "Viếng mộ Cô Sáu, khám phá nhà tù lịch sử và bãi Đầm Trầu hoang sơ.",
+            rating: "5.0",
             title: "Côn Đảo - Vùng Đất Tâm Linh & Huyền Thoại",
             duration: "3 Ngày 2 Đêm",
             transport: "Máy bay + Xe du lịch",
@@ -46,6 +52,9 @@ const SiteData = {
             ]
         },
         "quy-nhon": {
+            shortTitle: "Quy Nhơn - Kỳ Co",
+            shortDesc: "Check-in Eo Gió, lặn ngắm san hô tại Kỳ Co và thưởng thức hải sản.",
+            rating: "4.8",
             title: "Quy Nhơn - Kỳ Co - Eo Gió - Maldives Việt Nam",
             duration: "3 Ngày 2 Đêm",
             transport: "Xe du lịch đời mới + Cano",
@@ -62,8 +71,18 @@ const SiteData = {
     },
     accommodation: {
         "intercontinental-phu-quoc": {
+            // === Dữ liệu hiển thị Card (Chính xác theo Index) ===
+            shortTitle: "InterContinental Long Beach",
+            shortDesc: "Sự kết hợp hoàn hảo giữa sự sang trọng hiện đại và vẻ đẹp hoang sơ của Bãi Trường.",
+            starHtml: '<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>',
+            price: "Từ 4.500.000₫/đêm",
+            badgeText: "Luxury",
+            badgeClass: "bg-success",
+            
+            // === Dữ liệu hiển thị Detail ===
             title: "InterContinental Phu Quoc Long Beach Resort",
             location: "Bãi Trường, Phú Quốc",
+            locationCard: "Phú Quốc, Kiên Giang",
             image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
             intro: "Khu nghỉ dưỡng sang trọng bậc nhất tại Đảo Ngọc, mang đến sự kết hợp hoàn hảo giữa nét đẹp truyền thống và sự tiện nghi hiện đại. Với bãi biển riêng tư, hồ bơi vô cực và dịch vụ spa đẳng cấp, đây là lựa chọn hoàn hảo cho kỳ nghỉ dưỡng trong mơ.",
             nearby: ["Cách sân bay Phú Quốc 15 phút", "Gần Sunset Sanato Beach Club", "Công viên nước Aquatopia (Hòn Thơm)", "Chợ đêm Dương Đông (20 phút)"],
@@ -71,8 +90,18 @@ const SiteData = {
             relatedTourId: "phu-quoc"
         },
         "poulo-condor": {
+            // === Dữ liệu hiển thị Card (Chính xác theo Index) ===
+            shortTitle: "Poulo Condor Resort & Spa",
+            shortDesc: "Phong cách thuộc địa Pháp cổ điển ẩn mình dưới tán rừng nhiệt đới yên bình.",
+            starHtml: '<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>',
+            price: "Từ 3.800.000₫/đêm",
+            badgeText: "Boutique",
+            badgeClass: "bg-warning text-dark",
+
+            // === Dữ liệu hiển thị Detail ===
             title: "Poulo Condor Boutique Resort & Spa",
             location: "Bãi Vông, Côn Đảo",
+            locationCard: "Côn Đảo, Vũng Tàu",
             image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
             intro: "Lấy cảm hứng từ kiến trúc thuộc địa Pháp cổ điển pha lẫn nét văn hóa Việt Nam, Poulo Condor nằm ẩn mình dưới tán rừng nhiệt đới và hướng ra bãi biển hoang sơ. Không gian yên tĩnh tuyệt đối, thích hợp cho những ai tìm kiếm sự bình yên.",
             nearby: ["Sát bên bãi biển Vông (Bãi Vông)", "Cách sân bay Cỏ Ống 5 phút", "Gần Miếu Bà Phi Yến", "Cách trung tâm thị trấn 12km"],
@@ -80,8 +109,18 @@ const SiteData = {
             relatedTourId: "con-dao"
         },
         "crown-retreat": {
+             // === Dữ liệu hiển thị Card (Chính xác theo Index) ===
+            shortTitle: "Crown Retreat Quy Nhơn",
+            shortDesc: "Khu nghỉ dưỡng biệt lập với các bungalow hướng biển tuyệt đẹp và riêng tư.",
+            starHtml: '<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>',
+            price: "Từ 2.900.000₫/đêm",
+            badgeText: "Beachfront",
+            badgeClass: "bg-info text-dark",
+
+            // === Dữ liệu hiển thị Detail ===
             title: "Crown Retreat Quy Nhơn Resort",
             location: "Trung Lương, Phù Cát, Bình Định",
+            locationCard: "Trung Lương, Bình Định",
             image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
             intro: "Khu nghỉ dưỡng biệt lập nằm bên bãi biển Trung Lương tuyệt đẹp. Nổi bật với các căn bungalow được thiết kế hiện đại, hài hòa với thiên nhiên. Nơi đây là điểm dừng chân lý tưởng để khám phá vẻ đẹp hoang sơ của Quy Nhơn.",
             nearby: ["Ngay cạnh Khu dã ngoại Trung Lương", "Cách Chùa Ông Núi (Tượng Phật ngồi) 2km", "Cách Eo Gió - Kỳ Co 15 phút đi xe", "Cách sân bay Phù Cát 25 phút"],
@@ -91,6 +130,8 @@ const SiteData = {
     },
     cuisine: {
         "goi-ca-trich": {
+            shortTitle: "Gỏi Cá Trích",
+            shortDesc: "Món ăn trứ danh kết hợp cá trích tươi sống, dừa nạo và rau rừng. Sự hòa quyện giữa vị ngọt của cá tươi, vị béo của dừa và đậm đà của nước mắm Phú Quốc tạo nên trải nghiệm khó quên.",
             title: "Gỏi Cá Trích Phú Quốc",
             location: "Phú Quốc",
             image: "https://www.tasteatlas.com/images/dishes/16744689f0b04ba69efe8f23b2bd5edc.jpg?mw=1300",
@@ -107,6 +148,8 @@ const SiteData = {
             relatedTourId: "phu-quoc" 
         },
         "chao-hau": {
+            shortTitle: "Cháo Hàu",
+            shortDesc: "Hàu Côn Đảo nổi tiếng với vị ngọt đậm và kích thước lớn. Cháo được nấu từ gạo rang thơm lừng, thêm chút tiêu sọ cay nồng, là món ăn bổ dưỡng tuyệt vời sau những giờ tắm biển.",
             title: "Cháo Hàu Côn Đảo",
             location: "Côn Đảo",
             image: "https://visitvungtau.travel/VisitVungTau/POINT/%C4%82n%20u%E1%BB%91ng/%E1%BA%A8m%20th%E1%BB%B1c%20%C4%91%E1%BB%8Ba%20ph%C6%B0%C6%A1ng/4627/image-thumb__4627__720_jpg/chao-hau-nguyen-con01-1527300509.3c858966.jpg",
@@ -122,6 +165,8 @@ const SiteData = {
             relatedTourId: "con-dao" 
         },
         "bun-cha-ca": {
+            shortTitle: "Bún Chả Cá Quy Nhơn",
+            shortDesc: "Điểm đặc biệt nằm ở nước dùng ngọt thanh được ninh hoàn toàn từ xương cá tươi, không dùng bột ngọt. Chả cá dai giòn sần sật ăn kèm với rau sống tươi mát vùng đất võ.",
             title: "Bún Chả Cá Quy Nhơn",
             location: "Quy Nhơn",
             image: "https://gcs.tripi.vn/public-tripi/tripi-feed/img/473524mLL/image-nhung-dac-san-khong-the-bo-qua-khi-den-quy-nhon-165391213162671.jpg",
@@ -149,7 +194,7 @@ function renderNavbar() {
     if (!navbarPlaceholder) return;
 
     // Determine basic active state
-    const isIndex = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
+    const isIndex = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/');
     
     const html = `
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -160,7 +205,7 @@ function renderNavbar() {
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link ${isIndex ? '' : ''}" href="index.html#home">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Trang chủ</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.html#about">Giới thiệu</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.html#tours">Tour Nổi Bật</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.html#cuisine">Ẩm thực</a></li>
@@ -278,14 +323,12 @@ function renderFooter() {
 // BACK TO TOP BUTTON LOGIC
 // ==========================================
 function setupBackToTop() {
-    // 1. Create the button dynamically
     const btn = document.createElement('button');
     btn.id = 'back-to-top';
     btn.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
     btn.setAttribute('aria-label', 'Lên đầu trang');
     document.body.appendChild(btn);
 
-    // 2. Show/Hide logic based on scroll position
     window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
             btn.classList.add('show');
@@ -294,7 +337,6 @@ function setupBackToTop() {
         }
     });
 
-    // 3. Scroll to top on click
     btn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
@@ -352,5 +394,5 @@ document.addEventListener('DOMContentLoaded', () => {
     renderNavbar();
     renderFooter();
     handleNewsletter();
-    setupBackToTop(); // Initialize Back to Top
+    setupBackToTop();
 });

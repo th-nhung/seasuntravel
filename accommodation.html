@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lưu Trú Nghỉ Dưỡng - Sea Sun Travel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-header {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <div class="page-header">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Bộ Sưu Tập Lưu Trú</h1>
+            <p class="lead">Nghỉ dưỡng đẳng cấp tại những địa điểm tuyệt đẹp</p>
+        </div>
+    </div>
+
+    <section class="section-padding bg-light-blue">
+        <div class="container">
+            <div class="row g-4" id="hotel-container">
+                </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('hotel-container');
+            
+            Object.keys(SiteData.accommodation).forEach(key => {
+                const item = SiteData.accommodation[key];
+                
+                // Bây giờ sử dụng trực tiếp badgeClass, badgeText, và price từ main.js
+                // Đảm bảo đồng bộ tuyệt đối với Index
+                const html = `
+                    <div class="col-lg-4 col-md-6">
+                        <div class="hotel-card">
+                            <img src="${item.image}" 
+                                 onerror="this.onerror=null; this.src='${SiteData.images.default}';"
+                                 alt="${item.shortTitle}" class="hotel-img">
+                            <div class="card-content">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <div class="hotel-stars">${item.starHtml}</div>
+                                    <span class="badge ${item.badgeClass}">${item.badgeText}</span>
+                                </div>
+                                <h3>${item.shortTitle}</h3>
+                                <div class="card-meta"><i class="fa-solid fa-map-pin me-2"></i>${item.locationCard || item.location}</div>
+                                <p class="text-muted small">${item.shortDesc}</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <span class="card-price">${item.price}</span>
+                                    <a href="accommodation-detail.html?id=${key}" class="btn btn-outline-primary btn-sm rounded-pill">Xem phòng</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+                container.innerHTML += html;
+            });
+        });
+    </script>
+</body>
+</html>
