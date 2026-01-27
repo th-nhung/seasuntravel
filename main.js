@@ -1,8 +1,4 @@
-/* main.js */
-
-// ==========================================
 // CENTRALIZED DATA STORE (Source of Truth)
-// ==========================================
 const SiteData = {
     images: {
         default: "https://images.unsplash.com/photo-1499678329028-101435549a4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
@@ -16,7 +12,6 @@ const SiteData = {
         }
     },
     tours: {
-        // --- DỮ LIỆU CŨ ---
         "phu-quoc": {
             shortTitle: "Phú Quốc - Đảo Ngọc",
             shortDesc: "Khám phá Bãi Sao, Hòn Thơm và thưởng thức hải sản tươi sống.",
@@ -69,8 +64,6 @@ const SiteData = {
                 { day: "Ngày 3", title: "Ghềnh Ráng - Tiễn bay", desc: "Viếng mộ Hàn Mặc Tử tại Ghềnh Ráng Tiên Sa. Ra sân bay Phù Cát." }
             ]
         },
-
-        // --- DỮ LIỆU MỚI BỔ SUNG ---
         "son-tra-cu-lao-cham": {
             shortTitle: "Sơn Trà - Cù Lao Chàm",
             shortDesc: "Bản giao hưởng rừng & biển. Ngắm voọc chà vá và lặn ngắm san hô khu dự trữ sinh quyển.",
@@ -157,7 +150,6 @@ const SiteData = {
         }
     },
     accommodation: {
-        // --- DỮ LIỆU CŨ ---
         "intercontinental-phu-quoc": {
             shortTitle: "InterContinental Long Beach",
             shortDesc: "Sự kết hợp hoàn hảo giữa sự sang trọng hiện đại và vẻ đẹp hoang sơ của Bãi Trường.",
@@ -206,8 +198,6 @@ const SiteData = {
             roomTypes: ["Bungalow Pine Hill", "Bungalow Sea View", "Bungalow Beach Front"],
             relatedTourId: "quy-nhon"
         },
-
-        // --- DỮ LIỆU MỚI BỔ SUNG ---
         "sunbay-homestay": {
             shortTitle: "SunBay Homestay",
             shortDesc: "Không gian lưu trú hiện đại ngay mặt tiền Bãi Làng, Cù Lao Chàm.",
@@ -290,7 +280,6 @@ const SiteData = {
         }
     },
     cuisine: {
-        // --- DỮ LIỆU CŨ ---
         "goi-ca-trich": {
             shortTitle: "Gỏi Cá Trích",
             shortDesc: "Món ăn trứ danh kết hợp cá trích tươi sống, dừa nạo và rau rừng.",
@@ -324,8 +313,6 @@ const SiteData = {
             taste: "Nước lèo trong vắt, ngọt thanh. Miếng chả cá dai sần sật, ăn kèm tương ớt rim cay nồng.",
             relatedTourId: "quy-nhon" 
         },
-
-        // --- DỮ LIỆU MỚI BỔ SUNG ---
         "cua-da": {
             shortTitle: "Cua Đá Cù Lao",
             shortDesc: "Loại cua sống trên núi, thịt thơm mùi lá rừng và có vị thuốc dân gian.",
@@ -346,7 +333,7 @@ const SiteData = {
             intro: "Món ăn trứ danh làm từ cá trích tươi sống vừa đánh bắt tại làng chài Nam Ô dưới chân đèo Hải Vân. Điểm đặc biệt là món này ăn kèm với rất nhiều loại lá rừng chỉ có ở vùng bán đảo Sơn Trà và đèo Hải Vân.",
             ingredients: ["Cá trích tươi (lọc xương)", "Thính bắp, mè rang", "Nước chấm mè đậu phộng", "Lá rừng (trâm, dừng, cóc rừng...)"],
             taste: "Vị ngọt của cá tươi quyện với vị bùi của thính, vị chát của chuối xanh và hương thơm nồng nàn của các loại lá rừng tạo nên trải nghiệm bùng nổ vị giác.",
-            relatedTourId: "son-tra-cu-lao-cham" // Liên kết tour có ghé Sơn Trà
+            relatedTourId: "son-tra-cu-lao-cham"
         },
         "oc-cu": {
             shortTitle: "Ốc Cừ Lý Sơn",
@@ -384,9 +371,7 @@ const SiteData = {
     }
 };
 
-// ==========================================
 // COMPONENT RENDERING (Client Side)
-// ==========================================
 
 function renderNavbar() {
     const navbarPlaceholder = document.getElementById('navbar-placeholder');
@@ -518,9 +503,7 @@ function renderFooter() {
     footerPlaceholder.innerHTML = html;
 }
 
-// ==========================================
 // BACK TO TOP BUTTON LOGIC
-// ==========================================
 function setupBackToTop() {
     const btn = document.createElement('button');
     btn.id = 'back-to-top';
@@ -541,9 +524,7 @@ function setupBackToTop() {
     });
 }
 
-// ==========================================
 // UTILITIES
-// ==========================================
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
@@ -586,9 +567,7 @@ function handleNewsletter() {
     });
 }
 
-// ==========================================
 // INITIALIZATION
-// ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     renderNavbar();
     renderFooter();
